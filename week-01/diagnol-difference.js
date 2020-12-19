@@ -29,6 +29,7 @@ function readLine() {
  * The function accepts 2D_INTEGER_ARRAY arr as parameter.
  */
 
+//version I did on first attempt - start
 function diagonalDifference(arr) {
     // Write your code here
     let diagOne = 0, diagTwo = 0;
@@ -43,6 +44,20 @@ function sumDiagnol(arr, idx) {
     }
     return arr[idx]
 }
+//version I did on first attempt - end
+
+//version I did after discussion - start
+function diagonalDifference(arr) {
+    // Write your code here
+    const lastIndex = arr.length - 1
+    let diagOne = 0, diagTwo = 0;
+    for(let idx in arr) {
+        diagOne += arr[idx][idx];
+        diagTwo += arr[idx][lastIndex - idx]
+    }
+    return Math.abs(diagOne - diagTwo)
+}
+//version I did after discussion - end
 
 function main() {
     const ws = fs.createWriteStream(process.env.OUTPUT_PATH);
